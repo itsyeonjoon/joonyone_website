@@ -33,6 +33,10 @@ hr {
     width: 75%; 
 }
 
+h3 {
+    color: var(--gold-pink-darker); 
+}
+
 
 .title {
     font-family: Palatino,Palatino Linotype,Palatino LT STD,Book Antiqua,Georgia,serif; 
