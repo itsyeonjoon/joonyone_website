@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joonyone NFT Minting Site</title>
+    <link rel="shortcut icon" type="image/jpg" href="/images/joonyone.ico">
+    <link rel="stylesheet" href="style.css">
+    <script src="config.js"></script>
+    <script src="mintScript.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bignumber.js/8.0.2/bignumber.js" integrity="sha512-XQDG6H87RgMf+aNFwDPCUcFwUf3t9liyqN/2BkJ8KGixupbjPwQHNhypNA972mLIkg4KPo4lkGmqAf3yfDz8hw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <header>
+        <h1 class="title">Joonyone NFT</h1>
+        <h2 class="subtitle">Daily Moments of Ordinary People</h2>
+    </header>
+
+    <main>
+        <hr/>
+
+        <h2 class="galleryTitle">Your Wallet</h2>
+        <div class="kaikas-info">
+
+            <div class="wallet kaikas-section">
+                <h2 class="sectionTitle">MY WALLET</h2>
+                <hr class="sectionLine"/>
+                <button class="connect" onclick="connect()">Connect your Kaikas Wallet</button>
+                <p class="sectionContent" id="myWallet"><span style="color: #f8f8f8">Wallet Address:</span><br/><i>Not Connected</i></p>
+                <p class="sectionContent" id="myKlay"><span style="color: #f8f8f8">Balance:</span><br/><i>Not Connected</i></p>
+            </div>
+            <div class="chain kaikas-section">
+                <h2 class="sectionTitle">COUNTDOWN</h2>
+                <hr class="sectionLine"/>
+                <p class="sectionContent" id="blockNumber"><span style="color: #f8f8f8">Current Block Height:</span><br/><strong>#00000000</strong></p>
+                <p class="sectionContent" id="mintStartBlockNumber"><span style="color: #f8f8f8">Starting Block Height:</span><br/><strong>#00000000</strong></p>
+                <a id="klaytnscope" href="https://scope.klaytn.com/">Check Klaytnscope</a><br>
+            </div>
+
+        </div>
+
+        <hr/>
+
+        <h2 class="galleryTitle">About</h2>
+        <div class="about">
+            <p>
+                Hello! I'm Joon, and I'm a computer science student and an illustrator based in Seattle, Washington. I love capturing daily  
+                lives of ordinary people through art. My goal is to create illustrations that speak for themselves, allowing us to understand each other 
+                without words.  
+            </p>
+            <p>
+                Joonyone is my first PFP NFT project with 9 selected artworks I drew back from my high school years. Written in Solidity, the artworks are
+                created and stored on the Klaytn blockchain. There are several small merits of purchasing Joonyone NFT in addition to having ownership of   
+                my artwork, like having being on the whitelist for my next NFT projects or maybe having a coffee together with me whenever you visit Seattle.
+
+            </p>
+        </div>
+
+        <hr/>
+
+        <h2 class="galleryTitle">Gallery</h2>
+        <div id="gallery">
+            <div id="notEnabled">
+                <p id="enableNotice">Enable Kaikas web browser extension to view the artworks!</p><br>
+                <a id="checkKaikas" href="https://docs.kaikas.io/">Kaikas Docs</a><br>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="description">
+            <h2 class="hf">
+                #Welcome_to_Joonyone_NFT!
+            </h2>
+            <img class="footerImage" src="images/illust-nft.jpg">
+        </div>
+        <div class="moreInfo">
+            <div class="code">
+                <h2 class="hf">
+                    Source Code
+                </h2>
+                <ul class="links">
+                    <li><a href="https://github.com/itsyeonjoon/">GitHub Homepage</a></li>
+                </ul>
+            </div>
+            <div class="bio">
+                <h2 class="hf">
+                    Contact
+                </h2>
+                <ul class="links">
+                    <li><a href="https://www.linkedin.com/in/yj-jung/">LinkedIn Profile</a></li>
+                    <li><a href="mailto:yeonjoonjung1@gmail.com?subject = Feedback&body = Message">Email me</a></li>
+                    <li><a href="https://grafolio.naver.com/cyan1">Grafolio Profile</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+		document.addEventListener("DOMContentLoaded", async function (event) {
+			const accounts = await klaytn.enable();
+			if (!accounts) {
+				alert("Enable KaiKas Extension!");
+			}
+			check_status();
+		});
+	</script>
+    
+</body>
+</html>
