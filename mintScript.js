@@ -110,7 +110,7 @@ async function galleryLoad() {
                             title.innerHTML = data.name; 
 
                             let price = document.createElement('p'); 
-                            // price.setAttribute("id", "Div1");
+                            price.setAttribute("class", "price");
                             price.innerHTML = `${caver.utils.fromPeb(mintPrice, "KLAY")} KLAY`; 
 
                             let mintButton = document.createElement('button');

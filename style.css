@@ -173,6 +173,10 @@ h3 {
     margin: 0px 30px; 
 }
 
+.price {
+    color: var(--gray); 
+}
+
 .sectionContent {
     font-size: 18px; 
 }
