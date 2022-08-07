@@ -1,6 +1,6 @@
 # joonyone_website
 
-This is the source code for the webpage for Joonyone project. 
+This is the source code for Joonyone NFT project's webpage. 
 
 Joonyone is my first NFT art project with 9 selected artworks I drew back from my high school years. 
 
