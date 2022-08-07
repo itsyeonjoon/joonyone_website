@@ -116,15 +116,14 @@ h3 {
 
 .kaikas-info {
     margin-bottom: 32px; 
-    margin-left: 25%; 
-    margin-right: 25%; 
+    margin: auto;  
     display: flex; 
-    justify-content: space-between; 
+    justify-content: center; 
     
 }
 
 .kaikas-section {
-    width: 400px; 
+    width: 300px; 
     padding: 10px 10px; 
     margin: 20px 20px; 
     background-color: var(--ivory); 
@@ -181,7 +180,8 @@ h3 {
     font-size: 18px; 
     margin: auto; 
     margin-top: 20px; 
-    max-width: fit-content; 
+    width: 250px; 
+    overflow-wrap: break-word;
 }
 
 .sectionLine {
@@ -245,6 +245,7 @@ h3 {
     border-radius: 4px;
     border-color: var(--ivory-darker);
 }
+
 
 #notEnabled {
     margin: auto; 
