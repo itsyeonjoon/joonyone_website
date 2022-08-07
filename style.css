@@ -179,6 +179,7 @@ h3 {
 
 .sectionContent {
     font-size: 18px; 
+    max-width: fit-content; 
 }
 
 .sectionLine {
