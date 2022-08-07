@@ -179,6 +179,8 @@ h3 {
 
 .sectionContent {
     font-size: 18px; 
+    margin: auto; 
+    margin-top: 20px; 
     max-width: fit-content; 
 }
 
