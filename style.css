@@ -1,6 +1,6 @@
 :root {
     --white: #f0f0f0; 
-    --dark-blue: #2B3F55; 
+    --dark-blue: ; 
     --gold-pink: #E0BFB8; 
     --gold-pink-darker: #D4ABA3;
     --gray: #808080; 
@@ -22,10 +22,10 @@ main {
 }
 
 footer { 
-    padding: 30px 12%; 
+    padding: 20px 10%; 
     background-color: var(--gold-pink-darker);
     display: flex; 
-    justify-content: space-between; 
+    justify-content: space-between;
     color: white; 
 }
 
@@ -114,6 +114,10 @@ h3 {
     font-weight: bold; 
 }
 
+.infoList {
+    width: 100%;  
+}
+
 .kaikas-info {
     margin-bottom: 32px; 
     margin: auto;  
@@ -161,7 +165,7 @@ h3 {
     color: white;  
     font-weight: bold; 
     padding: 4px 24px; 
-    border-radius: 8px;
+    border-radius: 4px;
     border-style: none;
     cursor:pointer; 
 }
@@ -223,6 +227,7 @@ h3 {
     font-style: italic;
     text-align: center;
     margin: auto;
+    margin-top: 10px; 
 }
 
 #gallery {

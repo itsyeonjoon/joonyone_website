@@ -12,10 +12,19 @@ let blockCnt = false;
 let myContract = null; 
 
 
+/**
+ * Custom sleep mathod. 
+ * 
+ * @param {int} ms 
+ * @returns new Promise to give a setTimeout of given ms. 
+ */
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms)); 
 }
 
+/**
+ * Updates cntBlockNumber by +1 per 1 second. 
+ */
 function cntBlockNumber() {
     if(!blockCnt) {
         setInterval(function(){
@@ -26,6 +35,11 @@ function cntBlockNumber() {
     }
 }
 
+/**
+ * Connects Kaikas wallet information to the website. Updates wallet address and balance of the user. 
+ * It then calls check_status() function. 
+ * @returns null and ends the function when it cannot connect to Klaytn Network. 
+ */
 async function connect() {
     const accounts = await klaytn.enable();
 
@@ -41,8 +55,8 @@ async function connect() {
     account = accounts[0];
     caver.klay.getBalance(account)
         .then(function (balance) {
-            document.getElementById("myWallet").innerHTML = `<span style="color: #f8f8f8">Wallet Address:</span><br/>${account}`
-            document.getElementById("myKlay").innerHTML = `<span style="color: #f8f8f8">Balance:</span><br/>${caver.utils.fromPeb(balance, "KLAY")} KLAY`
+            document.getElementById("myWallet").innerHTML = `<span style="color: #f8f8f8">Wallet Address:</span><br/><strong>${account}</strong>`
+            document.getElementById("myKlay").innerHTML = `<span style="color: #f8f8f8">Balance:</span><br/><strong>${caver.utils.fromPeb(balance, "KLAY")} KLAY</strong>`
         });
 
         document.getElementsByClassName("connect").style.backgroundColor = C0B69F; 
@@ -50,6 +64,11 @@ async function connect() {
     await check_status();
 }
 
+/**
+ * Brings the Joonyone smart contract and checks starting block height for minting sale. 
+ * Then it enables the website to load gallery information through galleryLoad(). Prints out an error 
+ * on console.log if there is issue with receiving minting information from the smart contract. 
+ */
 async function check_status() {
     myContract = new caver.klay.Contract(ABI, CONTRACTADDRESS);
     await myContract.methods.mintingInformation().call()
@@ -67,6 +86,10 @@ async function check_status() {
     galleryLoad(); 
 }
 
+/**
+ * Fetches the json URL that includes gallery information from Joonyone smart contract, 
+ * and display all artworks on the website. 
+ */
 async function galleryLoad() {
     if (!galleryLoaded) {
         await myContract.methods.mintingInformation().call()
@@ -85,8 +108,8 @@ async function galleryLoad() {
             await myContract.methods.tokenURI(i).call()
                 .then(function (result) {
                     console.log(result);
-                    let proxyUrl =  'https://fierce-tundra-18149.herokuapp.com/';
-                    let targetUrl = 'https://gateway.pinata.cloud/ipfs' + result.substring(6);
+                    let proxyUrl =  'https://fierce-tundra-18149.herokuapp.com/'; // Heroku proxy url to prevent no-cors error 
+                    let targetUrl = 'https://gateway.pinata.cloud/ipfs' + result.substring(6); // pinata gateway to access ipfs 
 
                     let finalUrl = proxyUrl + targetUrl; 
                     fetch(finalUrl)
@@ -100,10 +123,11 @@ async function galleryLoad() {
                             artwork.style.width = "380px"; 
                             artwork.style.margin = "20px 10px"; 
 
-                            let link = 'https://gateway.pinata.cloud/ipfs' + data.image.substring(6); 
+                            let link = 'https://gateway.pinata.cloud/ipfs' + data.image.substring(6); // pinata gateway to access ipfs
                             let img = document.createElement('img');
                             img.src = link; 
                             img.style.width = "100%";
+                            img.style.border = "2px solid #c0b69f";
 
                             
                             let title = document.createElement('h3'); 
@@ -119,6 +143,7 @@ async function galleryLoad() {
                             mintButton.addEventListener("click", function() {
                                 publicMint(i);
                             }, false);
+
 
                             artwork.appendChild(img); 
                             artwork.appendChild(title); 
@@ -139,6 +164,12 @@ async function galleryLoad() {
     }
 }
 
+/**
+ * publicMint is the function where when called, allows users to mint the 
+ * selected artwork (tokenID).  
+ *  
+ * @param {int} tokenID  
+ */
 async function publicMint(tokenID) {
     if (klaytn.networkVersion === 8217) {
         console.log("MainNet");
