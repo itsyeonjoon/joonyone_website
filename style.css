@@ -1,10 +1,10 @@
 :root {
-    --white: #f0f0f0; 
-    --dark-blue: ; 
-    --gold-pink: #E0BFB8; 
+    --white: #f0f0f0;
+    --dark-blue: ;
+    --gold-pink: #E0BFB8;
     --gold-pink-darker: #D4ABA3;
-    --gray: #808080; 
-    --ivory-darker: #c0b69f;  
+    --gray: #808080;
+    --ivory-darker: #c0b69f;
     --ivory: #D2C7AD;
 }
 
@@ -13,7 +13,7 @@
 }
 
 header {
-    margin-bottom: 30px; 
+    margin-bottom: 30px;
 }
 
 main {
@@ -21,127 +21,127 @@ main {
     width: 100%;
 }
 
-footer { 
-    padding: 20px 10%; 
+footer {
+    padding: 20px 10%;
     background-color: var(--gold-pink-darker);
-    display: flex; 
+    display: flex;
     justify-content: space-between;
-    color: white; 
+    color: white;
 }
 
 hr {
-    width: 75%; 
+    width: 75%;
 }
 
 h3 {
-    color: var(--gold-pink-darker); 
+    color: var(--gold-pink-darker);
 }
 
 
 .title {
-    font-family: Palatino,Palatino Linotype,Palatino LT STD,Book Antiqua,Georgia,serif; 
-    color: var(--gold-pink-darker); 
-    font-size: 48px; 
-    margin-top: 18px; 
-    margin-bottom: 0px; 
-    text-align: center; 
+    font-family: Palatino, Palatino Linotype, Palatino LT STD, Book Antiqua, Georgia, serif;
+    color: var(--gold-pink-darker);
+    font-size: 48px;
+    margin-top: 18px;
+    margin-bottom: 0px;
+    text-align: center;
 }
 
 .subtitle {
-    font-family: Palatino,Palatino Linotype,Palatino LT STD,Book Antiqua,Georgia,serif; 
-    color: var(--gray); 
-    font-size: 20px; 
+    font-family: Palatino, Palatino Linotype, Palatino LT STD, Book Antiqua, Georgia, serif;
+    color: var(--gray);
+    font-size: 20px;
     font-style: italic;
-    margin-top: 0px; 
-    margin-bottom: 40px; 
-    text-align: center; 
+    margin-top: 0px;
+    margin-bottom: 40px;
+    text-align: center;
 }
 
 .about {
-    padding-left: 16%; 
-    padding-right: 16%; 
-    color: var(--gray); 
+    padding-left: 16%;
+    padding-right: 16%;
+    color: var(--gray);
     font-size: large;
-    text-align:justify;
-    margin-bottom: 56px; 
+    text-align: justify;
+    margin-bottom: 56px;
 }
 
 .connect {
     font-size: 16px;
     text-align: center;
-    margin-bottom: 4px; 
-    background-color: var(--white); 
-    color: var(--gray); 
+    margin-bottom: 4px;
+    background-color: var(--white);
+    color: var(--gray);
     font-weight: bold;
-    padding: 4px 8px; 
+    padding: 4px 8px;
     border-radius: 4px;
     border-color: var(--ivory-darker);
-    cursor:pointer;
+    cursor: pointer;
 }
 
 .connect:hover {
-    background-color: var(--ivory-darker); 
-    color: var(--white); 
+    background-color: var(--ivory-darker);
+    color: var(--white);
 }
 
 .description {
-    margin: 0px 30px; 
-    padding: 0px 40px; 
-    width: 40%; 
+    margin: 0px 30px;
+    padding: 0px 40px;
+    width: 40%;
 }
 
 .footerImage {
     margin-top: 20px;
-    width: 60%; 
+    width: 60%;
 }
 
 .footspace {
-    width: 60%; 
+    width: 60%;
     color: var(--white);
 }
 
 .galleryTitle {
-    font-family: Palatino,Palatino Linotype,Palatino LT STD,Book Antiqua,Georgia,serif;  
-    margin-top: 40px; 
-    font-size: 32px; 
+    font-family: Palatino, Palatino Linotype, Palatino LT STD, Book Antiqua, Georgia, serif;
+    margin-top: 40px;
+    font-size: 32px;
     color: var(--gold-pink-darker);
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
 
 }
 
 .hf {
     font-size: 20px;
-    font-weight: bold; 
+    font-weight: bold;
 }
 
 .infoList {
-    width: 100%;  
+    width: 100%;
 }
 
 .kaikas-info {
-    margin-bottom: 32px; 
-    margin: auto;  
-    display: flex; 
-    justify-content: center; 
-    
+    margin-bottom: 32px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+
 }
 
 .kaikas-section {
-    width: 300px; 
-    padding: 10px 10px; 
-    margin: 20px 20px; 
-    background-color: var(--ivory); 
-    color: white; 
+    width: 300px;
+    padding: 10px 10px;
+    margin: 20px 20px;
+    background-color: var(--ivory);
+    color: white;
 }
 
 .links {
     font-size: 17px;
-    margin-right: 80px; 
-    margin-top: 10px; 
-    padding: 5px 5px; 
-    display: flex; 
-    flex-direction: column; 
-    
+    margin-right: 80px;
+    margin-top: 10px;
+    padding: 5px 5px;
+    display: flex;
+    flex-direction: column;
+
 }
 
 .links li {
@@ -161,44 +161,45 @@ h3 {
 .mint {
     font-size: 16px;
     text-align: center;
-    background-color: var(--ivory-darker); 
-    color: white;  
-    font-weight: bold; 
-    padding: 4px 24px; 
+    background-color: var(--ivory-darker);
+    color: white;
+    font-weight: bold;
+    padding: 4px 24px;
     border-radius: 4px;
     border-style: none;
-    cursor:pointer; 
+    cursor: pointer;
 }
 
 .moreInfo {
-    display: flex; 
-    justify-content: space-between; 
-    margin: 0px 30px; 
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 30px;
 }
 
 .price {
-    color: var(--gray); 
+    color: var(--gray);
 }
 
 .sectionContent {
-    font-size: 18px; 
-    margin: auto; 
-    margin-top: 20px; 
-    width: 250px; 
+    font-size: 18px;
+    color: white;
+    margin: auto;
+    margin-top: 20px;
+    width: 250px;
     overflow-wrap: break-word;
 }
 
 .sectionLine {
-    border: 3px solid white; 
-    width: 75%; 
-    margin-bottom: 20px; 
+    border: 3px solid white;
+    width: 75%;
+    margin-bottom: 20px;
 }
 
 .sectionTitle {
-    font-size: 26px; 
-    font-weight:bolder;  
+    font-size: 26px;
+    font-weight: bolder;
     margin-bottom: 10px;
-    color: white;   
+    color: white;
 }
 
 
@@ -212,58 +213,50 @@ h3 {
 #checkKaikas {
     font-size: 20px;
     text-align: center;
-    margin-bottom: 4px; 
-    color: var(--gray); 
-    padding: 4px 8px; 
+    margin-bottom: 4px;
+    color: var(--gray);
+    padding: 4px 8px;
     border-radius: 4px;
     border-color: var(--ivory-darker);
-    cursor:pointer;
+    cursor: pointer;
 }
 
 
 #enableNotice {
-    color: var(--gray); 
-    font-size: 20px; 
+    color: var(--gray);
+    font-size: 20px;
     font-style: italic;
     text-align: center;
     margin: auto;
-    margin-top: 10px; 
+    margin-top: 10px;
 }
 
 #gallery {
-    margin-bottom: 64px; 
-    padding-left: 8%; 
+    margin-bottom: 64px;
+    padding-left: 8%;
     padding-right: 8%;
-    display: flex; 
-    flex-wrap: wrap; 
-    justify-content: space-between;  
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 #klaytnscope {
-    margin-top: 30px; 
+    margin-top: 30px;
     font-size: 16px;
     text-align: center;
-    margin-bottom: 4px; 
-    color: #707070; 
+    margin-bottom: 4px;
+    color: #707070;
     font-weight: bold;
-    padding: 4px 8px; 
+    padding: 4px 8px;
     border-radius: 4px;
     border-color: var(--ivory-darker);
 }
 
 
 #notEnabled {
-    margin: auto; 
+    margin: auto;
 }
 
 #mintStartBlockNumber {
-    margin-bottom: 30px; 
-}
-
-#myWallet {
-    color: white; 
-}
-
-#myKlay {
-    color: white; 
+    margin-bottom: 30px;
 }
