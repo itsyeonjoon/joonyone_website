@@ -4,12 +4,12 @@ let mintPrice = 0;
 let mintStartBlockNumber = 0;
 let mintLimitPerBlock = 0;
 
-let galleryLoaded = false; 
+let galleryLoaded = false;
 
 let blockNumber = 0;
 let blockCnt = false;
 
-let myContract = null; 
+let myContract = null;
 
 
 /**
@@ -19,16 +19,16 @@ let myContract = null;
  * @returns new Promise to give a setTimeout of given ms. 
  */
 function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms)); 
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 /**
  * Updates cntBlockNumber by +1 per 1 second. 
  */
 function cntBlockNumber() {
-    if(!blockCnt) {
-        setInterval(function(){
-            blockNumber+=1;
+    if (!blockCnt) {
+        setInterval(function () {
+            blockNumber += 1;
             document.getElementById("blockNumber").innerHTML = `<span style="color: #f8f8f8">Current Block Height:</span><br/><strong>#${blockNumber}</strong>`;
         }, 1000);
         blockCnt = true;
@@ -59,8 +59,8 @@ async function connect() {
             document.getElementById("myKlay").innerHTML = `<span style="color: #f8f8f8">Balance:</span><br/><strong>${caver.utils.fromPeb(balance, "KLAY")} KLAY</strong>`
         });
 
-        document.getElementsByClassName("connect").style.backgroundColor = C0B69F; 
-        document.getElementsByClassName("connect").style.color = F0F0F0; 
+    document.getElementsByClassName("connect").style.backgroundColor = C0B69F;
+    document.getElementsByClassName("connect").style.color = F0F0F0;
     await check_status();
 }
 
@@ -83,7 +83,7 @@ async function check_status() {
     blockNumber = await caver.klay.getBlockNumber();
     document.getElementById("blockNumber").innerHTML = `<span style="color: #f8f8f8">Current Block Height:</span><br/><strong>#${blockNumber}</strong>`;
     cntBlockNumber();
-    galleryLoad(); 
+    galleryLoad();
 }
 
 /**
@@ -101,66 +101,67 @@ async function galleryLoad() {
             .catch(function (error) {
                 console.log(error);
             });
-        
-        document.getElementById("notEnabled").remove(); 
+
+        document.getElementById("notEnabled").remove();
         let gallery = document.getElementById("gallery");
         for (let i = 1; i <= maxSaleAmount; i++) {
             await myContract.methods.tokenURI(i).call()
                 .then(function (result) {
                     console.log(result);
-                    let proxyUrl =  'https://fierce-tundra-18149.herokuapp.com/'; // Heroku proxy url to prevent no-cors error 
+                    let proxyUrl = 'https://fierce-tundra-18149.herokuapp.com/'; // Heroku proxy url to prevent no-cors error 
                     let targetUrl = 'https://gateway.pinata.cloud/ipfs' + result.substring(6); // pinata gateway to access ipfs 
 
-                    let finalUrl = proxyUrl + targetUrl; 
+                    let finalUrl = proxyUrl + targetUrl;
                     fetch(finalUrl)
                         .then((response) => {
-                            return response.json(); 
+                            return response.json();
                         })
-                        
+
                         .then((data) => {
-                            
-                            let artwork = document.createElement('div'); 
-                            artwork.style.width = "380px"; 
-                            artwork.style.margin = "20px 10px"; 
+
+                            let artwork = document.createElement('div');
+                            artwork.style.width = "380px";
+                            artwork.style.margin = "20px 10px";
 
                             let link = 'https://gateway.pinata.cloud/ipfs' + data.image.substring(6); // pinata gateway to access ipfs
                             let img = document.createElement('img');
-                            img.src = link; 
+                            img.src = link;
                             img.style.width = "100%";
                             img.style.border = "2px solid #c0b69f";
 
-                            
-                            let title = document.createElement('h3'); 
-                            title.innerHTML = data.name; 
 
-                            let price = document.createElement('p'); 
+                            let title = document.createElement('h3');
+                            title.innerHTML = data.name;
+
+                            let price = document.createElement('p');
                             price.setAttribute("class", "price");
-                            price.innerHTML = `${caver.utils.fromPeb(mintPrice, "KLAY")} KLAY`; 
+                            price.innerHTML = `${caver.utils.fromPeb(mintPrice, "KLAY")} KLAY`;
 
                             let mintButton = document.createElement('button');
-                            mintButton.setAttribute("class", "mint"); 
-                            mintButton.innerHTML = 'Mint!'; 
-                            mintButton.addEventListener("click", function() {
+                            mintButton.setAttribute("class", "mint");
+                            mintButton.innerHTML = 'Mint!';
+                            mintButton.addEventListener("click", function () {
                                 publicMint(i);
                             }, false);
 
 
-                            artwork.appendChild(img); 
-                            artwork.appendChild(title); 
+                            artwork.appendChild(img);
+                            artwork.appendChild(title);
                             artwork.appendChild(price);
-                            artwork.appendChild(mintButton); 
+                            artwork.appendChild(mintButton);
 
-                            gallery.appendChild(artwork); 
-                    
+                            gallery.appendChild(artwork);
+
                         })
-                        
+
                 })
                 .catch(function (error) {
                     console.log(error);
                 });
+            await sleep(200);
         }
         await sleep(200);
-        galleryLoaded = true; 
+        galleryLoaded = true;
     }
 }
 
@@ -190,20 +191,20 @@ async function publicMint(tokenID) {
     if (blockNumber <= mintStartBlockNumber) {
         alert("Public Minting isn't open yet.");
         return;
-    } 
+    }
 
     await myContract.methods.isMinted(tokenID).call()
-            .then(function (sold) {
-                console.log(result);
-                if (sold) {
-                    alert("The selected artwork is already sold."); 
-                    return; 
-                }
-            })
-            .catch(function (error) {
-                console.log(error);
-                alert("ERROR: Something went wrong while verifying!"); 
-            });
+        .then(function (sold) {
+            console.log(result);
+            if (sold) {
+                alert("The selected artwork is already sold.");
+                return;
+            }
+        })
+        .catch(function (error) {
+            console.log(error);
+            alert("ERROR: Something went wrong while verifying!");
+        });
 
     const total_value = BigNumber(mintPrice);
 
