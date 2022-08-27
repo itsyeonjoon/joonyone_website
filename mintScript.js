@@ -73,7 +73,6 @@ async function check_status() {
     myContract = new caver.klay.Contract(ABI, CONTRACTADDRESS);
     await myContract.methods.mintingInformation().call()
         .then(function (result) {
-            console.log(result);
             mintStartBlockNumber = parseInt(result[1]);
             document.getElementById("mintStartBlockNumber").innerHTML = `<span style="color: #f8f8f8">Starting Block Height:</span><br/><strong>#${mintStartBlockNumber}</strong>`;
         })
@@ -94,7 +93,6 @@ async function galleryLoad() {
     if (!galleryLoaded) {
         await myContract.methods.mintingInformation().call()
             .then(function (result) {
-                console.log(result);
                 maxSaleAmount = parseInt(result[2]);
                 mintPrice = parseInt(result[3]);
             })
@@ -107,7 +105,6 @@ async function galleryLoad() {
         for (let i = 1; i <= maxSaleAmount; i++) {
             await myContract.methods.tokenURI(i).call()
                 .then(function (result) {
-                    console.log(result);
                     let proxyUrl = 'https://fierce-tundra-18149.herokuapp.com/'; // Heroku proxy url to prevent no-cors error 
                     let targetUrl = 'https://gateway.pinata.cloud/ipfs' + result.substring(6); // pinata gateway to access ipfs 
 
